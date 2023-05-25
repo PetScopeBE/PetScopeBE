@@ -39,8 +39,14 @@ async function seed() {
             primaryColor: "Grey Tabby",
             secondaryColor: "White",
         });
-
         jack.addPet(mrJinx);
+
+        //create admin user
+        const admin = await User.create({
+            username: "admin",
+            password: "admin",
+            isAdmin: "true",
+        });
         return "Database successfully seeded";
     } catch (error) {
         return error;
